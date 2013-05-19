@@ -2,27 +2,27 @@
 var SGM = window.SGM || {};
 
 // Augmenting Types
-Function.prototype.method = function(name, func) {
-	if(!this.prototype[name]) {
-		this.prototype[name] = func;
-	}
-	return this;
-}
+Function.prototype.method = function( name, func ) {
+    if( !this.prototype[name] ) {
+        this.prototype[name] = func;
+    }
+    return this;
+};
 // document.writeln( (-10 / 3).integer())  // -3
-String.method('integer', function() {
-	return Math[ this < 0 ? 'ceiling' : 'floor'](this);
+String.method( 'integer', function() {
+    return Math[ this < 0 ? 'ceiling' : 'floor'](this);
 });
 
-SGM.Utils = (function(){
+SGM.Utils = ( function(){
 
-	SGM.init();
+    SGM.init();
 
-	return {
+    return {
 
-		init: function() {
+        init: function() {
 
-		}
+        }
 
-	};  // return
+    };  // return
 
-})();  // SGM.Utils
+})();   // SGM.Utils
