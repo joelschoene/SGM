@@ -47,7 +47,21 @@ SGM.Utils = ( function(){
 
         init: function() {
             //console.log(4);
-        }()
+        },
+
+        // http://javascript.crockford.com/remedial.html
+        isEmpty: function(o) {
+            var i, v;
+            if (typeOf(o) === 'object') {
+                for (i in o) {
+                    v = o[i];
+                    if (v !== undefined && typeOf(v) !== 'function') {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
     };  // return
 
