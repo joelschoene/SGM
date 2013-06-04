@@ -32,6 +32,16 @@ String.method( 'rtrim', function() {
    return this.replace(/\s+$/g,"");
 });
 
+// http://stackoverflow.com/questions/2010892/storing-objects-in-html5-localstorage
+Storage.prototype.setObject = function(key, value) {
+    this.setItem(key, JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key) {
+    var value = this.getItem(key);
+    return value && JSON.parse(value);
+}
+
 /*
 * Usage
 * var tmp = [5,9,12,18,56,1,10,42,30,7,97,53,33,35,27];
@@ -50,6 +60,7 @@ SGM.Utils = ( function(){
         },
 
         // http://javascript.crockford.com/remedial.html
+        // isEmpty(v) returns true if v is an object containing no enumerable members.
         isEmpty: function(o) {
             var i, v;
             if (typeOf(o) === 'object') {
